@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 
-export default function TransportType ({id, text, price, handleUpdateType, transportType, initialActive}) {
+export default function TransportType ({id, text, handleUpdateType, transportType, initialActive}) {
 
   const [hover, setHover] = useState (false)
 
@@ -38,10 +38,6 @@ export default function TransportType ({id, text, price, handleUpdateType, trans
 
           <div className="text ms-5 w-full block">
             <h3 className='uppercase text-xl'>{text}</h3>
-            <div className={`price-wrapper ${price == 0 ? "hidden" : "" }`}>
-              <span className='block'>price</span>
-              <span className="price text-gold font-bold text-2xl">{price}.00 USD</span>
-            </div>
           </div>
 
         </label>
@@ -56,7 +52,6 @@ export default function TransportType ({id, text, price, handleUpdateType, trans
 TransportType.propTypes = {
   id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
   handleUpdateType: PropTypes.func.isRequired,
   transportType: PropTypes.string.isRequired,
   initialActive: PropTypes.bool.isRequired,

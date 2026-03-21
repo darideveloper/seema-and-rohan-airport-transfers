@@ -12,7 +12,6 @@ export default function TransportTypes({handleUpdateType, activeTransportType, t
           key={transport.id}
           id={transport.id}
           text={transport.text}
-          price={transport.price}
           handleUpdateType={handleUpdateType}
           transportType={activeTransportType} // submit active transport type to components
           initialActive={transport.initialActive}
@@ -29,7 +28,6 @@ TransportTypes.propTypes = {
   transports: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
     initialActive: PropTypes.bool.isRequired,
   })).isRequired,
 }

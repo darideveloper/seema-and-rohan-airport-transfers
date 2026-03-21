@@ -5,7 +5,7 @@ export default function Hero () {
           wrapper-logo
           mx-auto
           my-0
-          p-16
+          p-10
         `}>
         <p className={`
           logo-wordmark

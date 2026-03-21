@@ -15,7 +15,6 @@ import SubmitBtn from "../components/submit-btn"
 import { getHotels } from "../api/hotels"
 import { submitStripe } from "../api/stripe"
 import { getTransports } from "../api/transports"
-import { getFreeDates } from "../api/free-dates"
 
 // Context
 import LoadContext from '../context/load'
@@ -24,12 +23,11 @@ import { useContext } from 'react'
 
 export default function Form() {
 
-  const { loading, setLoading } = useContext(LoadContext)
-  const { vipCode, isVip } = useContext(VipCodeContext)
+  const { setLoading } = useContext(LoadContext)
+  const { vipCode } = useContext(VipCodeContext)
 
   const [transports, setTransports] = useState([])
   const [activeTransportType, setActiveTransportType] = useState('Arriving,Departing')
-  const [activeTransportPrice, setActiveTransportPrice] = useState(0)
   const [mediaQuery, setMediaQuery] = useState(false)
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -45,21 +43,11 @@ export default function Form() {
   const [departingTime, setDepartingTime] = useState('')
   const [departingAirline, setDepartingAirline] = useState('')
   const [departingFlight, setDepartingFlight] = useState('')
-  const [total, setTotal] = useState(0)
-  const [arrivalFreeDates, setArrivalFreeDates] = useState([])
-  const [departureFreeDates, setDepartureFreeDates] = useState([])
-  const [oldArrivingPrice, setOldArrivingPrice] = useState(0)
-  const [oldDepartingPrice, setOldDepartingPrice] = useState(0)
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
 
   function handleUpdateType(id) {
-    // Update active transport type
     setActiveTransportType(id)
-
-    // Save price
-    const price = transports.find(transport => transport.id == id).price
-    setActiveTransportPrice(price)
   }
 
   function handleResize() {
@@ -75,12 +63,12 @@ export default function Form() {
     // Don't submit form
     e.preventDefault()
 
-    // Get current service price and name
+    // Get current service name
     const currentService = transports.find(transport => transport.id == activeTransportType)
     const serviceName = currentService.text
 
-    // Submit to stripe
-    submitStripe(serviceName, total, name, lastName, vipCode, phone, email).then(() => {
+    // Save my place — no charge in UI; backend receives 0
+    submitStripe(serviceName, 0, name, lastName, vipCode, phone, email).then(() => {
       // Disable loading
       setLoading(false)
     })
@@ -91,8 +79,6 @@ export default function Form() {
     getTransports().then(apiTransports => {
       setTransports(apiTransports)
       setActiveTransportType(apiTransports[2].id)
-      setActiveTransportPrice(apiTransports[2].price)
-      setTotal(apiTransports[2].price)
     })
   }
 
@@ -103,80 +89,9 @@ export default function Form() {
     })
   }
 
-  function updateTotal() {
-    // Update total uwing transport and hotel values
-
-    // Skip when data its loading
-    if (hotels.length == 0) {
-      return undefined
-    }
-
-    // Get multipliear for round trip
-    let multiplier = 1
-    if (activeTransportType == "Arriving,Departing") {
-      multiplier = 2
-    }
-
-    // Calculate total
-    let total = activeTransportPrice
-    const hotel_obj = hotels.find(h => h.value == hotel)
-    total += hotel_obj.price * multiplier
-    setTotal(total)
-  }
-
   useEffect(() => {
-    // Renmder again when prices change
-    updateTotal()
-
-  }, [hotel, activeTransportPrice, hotels, transports])
-
-  useEffect(() => {
-    // Renmder again when vip code change
-
-    if (isVip) {
-      // Set transport prices to 0 if vip code is valid
-      setActiveTransportPrice(0)
-      transports.forEach(transport => {
-        transport.price = 0
-      })
-      setTransports(transports)
-
-      // Set hotel prices to 0 if vip code is valid
-      hotels.forEach(hotel => {
-        hotel.price = 0
-      })
-      setHotels(hotels)
-
-    } else {
-      updateTransports()
-      updateHotels()
-    }
-
-    updateTotal()
-
-  }, [isVip])
-
-  useEffect(() => {
-    // Initial data load
-    getTransports().then(apiTransports => {
-
-      setTransports(apiTransports)
-    
-      getFreeDates().then(freeDates => {
-  
-        // Save free dates
-        setArrivalFreeDates(freeDates.arrival)
-        setDepartureFreeDates(freeDates.departure)
-  
-        // Update dates
-        setArrivingDate(freeDates.arrival[0])
-        setDepartingDate(freeDates.departure[0])
-  
-        const e = {target: {value: null}}
-        handleUpdateDate(e, "Arriving", true, apiTransports)
-        handleUpdateDate(e, "Departing", true, apiTransports)
-      })
-    })
+    updateTransports()
+    updateHotels()
 
     // Detect when resize screen and update media query status
     window.addEventListener('resize', () => {
@@ -187,71 +102,12 @@ export default function Form() {
     handleResize(handleResize())
   }, [])
 
-  function handleUpdateDate(e, title, forceUpdate=false, apiTransports=[]) {
-    // Update date
-
-    if (e.target.value) {
-      if (title == "Arriving") {
-        setArrivingDate(e.target.value)
-      } else {
-        setDepartingDate(e.target.value)
-      }
-    }
-
-    let transportsLocal = []
-    if (forceUpdate && apiTransports.length != 0) {
-      transportsLocal = apiTransports
+  function handleUpdateDate(e, title) {
+    if (title == "Arriving") {
+      setArrivingDate(e.target.value)
     } else {
-      transportsLocal = transports
+      setDepartingDate(e.target.value)
     }
-    
-    // Firnd transports
-    let transport = transportsLocal.find(transport => transport.id == title)
-    let transportRound = transportsLocal.find(transport => transport.id == "Arriving,Departing")
-
-    const oldActiveTransportPrice = transport.price
-
-    if ((title == "Arriving" && arrivalFreeDates.includes(e.target.value)) ||
-      (title == "Departing" && departureFreeDates.includes(e.target.value)) || forceUpdate) {
-
-      // Remove departing price
-      if (title == "Arriving") {
-        setOldArrivingPrice(oldActiveTransportPrice)
-      } else {
-        setOldDepartingPrice(oldActiveTransportPrice)
-      }
-      transport.price = 0
-      transportRound.price -= oldActiveTransportPrice
-
-      // Update total
-      if (activeTransportType == "Arriving,Departing") {
-        setActiveTransportPrice(transportRound.price)
-      } else {
-        setActiveTransportPrice(0)
-      }
-
-    } else if ((oldArrivingPrice != 0 && title == "Arriving") ||
-      (oldDepartingPrice != 0 && title == "Departing")) {
-
-      // Restore old price
-      if (title == "Arriving") {
-        transport.price = oldArrivingPrice
-        setActiveTransportPrice(oldArrivingPrice)
-        setOldArrivingPrice(0)
-      } else {
-        transport.price = oldDepartingPrice
-        setActiveTransportPrice(oldDepartingPrice)
-        setOldDepartingPrice(0)
-      }
-
-      // Increase price of round trip
-      transportRound.price += transport.price
-    }
-
-
-    // Update data
-    setTransports(transportsLocal)
-    updateTotal()
   }
 
   function getArraivingDepartingForm() {
@@ -278,6 +134,7 @@ export default function Form() {
             name={`${title.toLowerCase()}-date`}
             handleUpdate={(e) => handleUpdateDate(e, title)}
             value={title == "Arriving" ? arrivingDate : departingDate}
+            isRequired={false}
           />
           <Input
             label={`${title} time ${direction} Cancun`}
@@ -418,20 +275,13 @@ export default function Form() {
 
         <VipCode />
 
-        <p className={`total text-center text-2xl w-fulll block mt-10 ${total == 0 ? "hidden" : ""}`}>
-          Total
-          <span className="px-2 font-bold">
-            {total}.00 USD
-          </span>
-        </p>
-
         <div
           className={`
             wrapper-submit
             flex items-center justify-center mt-10
           `}>
           <SubmitBtn
-            value={total == 0 ? "Save my place" : "Buy Now"}
+            value="Save my place"
             extraClass={`w-48 py-3`}
           />
         </div>
