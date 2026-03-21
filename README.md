@@ -1,5 +1,5 @@
-<div><a href='https://github.com/darideveloper/sarina-abhi-airport-transfers/blob/master/LICENSE' target='_blank'>
-                <img src='https://img.shields.io/github/license/darideveloper/sarina-abhi-airport-transfers.svg?style=for-the-badge' alt='MIT License' height='30px'/>
+<div><a href='https://github.com/darideveloper/seema-and-rohan-airport-transfers/blob/master/LICENSE' target='_blank'>
+                <img src='https://img.shields.io/github/license/darideveloper/seema-and-rohan-airport-transfers.svg?style=for-the-badge' alt='MIT License' height='30px'/>
             </a><a href='https://www.linkedin.com/in/francisco-dari-hernandez-6456b6181/' target='_blank'>
                 <img src='https://img.shields.io/static/v1?style=for-the-badge&message=LinkedIn&color=0A66C2&logo=LinkedIn&logoColor=FFFFFF&label=' alt='Linkedin' height='30px'/>
             </a><a href='https://t.me/darideveloper' target='_blank'>
@@ -14,13 +14,11 @@
                 <img src='https://img.shields.io/static/v1?style=for-the-badge&message=Gmail&color=EA4335&logo=Gmail&logoColor=FFFFFF&label=' alt='Gmail' height='30px'/>
             </a><a href='https://www.twitch.tv/darideveloper' target='_blank'>
                 <img src='https://img.shields.io/static/v1?style=for-the-badge&message=Twitch&color=b9a3e3&logo=Twitch&logoColor=ffffff&label=' alt='Twitch' height='30px'/>
-            </a></div><div align='center'><br><br><img src='https://cancunconciergedmc.com/sarina-abhi-airport-transfers/imgs/page-logo.png' alt='Sarina Abhi Airport Transfers' height='80px'/>
+            </a></div><div align='center'><br><br>
 
+# Seema & Rohan Airport Transfers
 
-
-# Sarina Abhi Airport Transfers
-
-Visit at: **[cancunconciergedmc.com/sarina-abhi-airport-transfers](https://cancunconciergedmc.com/sarina-abhi-airport-transfers/)**
+Visit at: **[cancunconciergedmc.com/seema-and-rohan-airport-transfers](https://cancunconciergedmc.com/seema-and-rohan-airport-transfers/)**
 
 Landing page with integrated payments for Airport Transfers services
 
@@ -46,35 +44,35 @@ Project type: **client**
 
 # Media
 
-![landing](https://github.com/darideveloper/sarina-abhi-airport-transfers/blob/master/screenshot.png?raw=true)
+![landing](https://github.com/darideveloper/seema-and-rohan-airport-transfers/blob/master/screenshot.png?raw=true)
 
 # Details
 
-The project have a service dynamic form, who redirects to stripe checkout.
-
-The landing page include the following sections:
-
-* Header
-* Hero
-* Buy form
-* Our services
-* Footer
-
+The project have a service dynamic form, who redirects to stripe checkout.
+
+The landing page include the following sections:
+
+* Header
+* Hero
+* Buy form
+* Our services
+* Footer
+
 The buy form user dynamic data, like prices or available hotels, updated by the user in the same dashboard of the related project project **EZBookingTours Store**.
 
 # Roadmap
 
-* [x] Layout and responsive
-* [x] Select transport type
-* [x] Custom tailwind colors
-* [x] Dynamic arriving and departing forms
-* [x] React hooks
-* [x] Redirect to stripe checkout
-* [x] Custom scroll bar
-* [x] Hover effects
-* [x] Host in cancunconciergedmc.com
-* [x] Loading spinner
-* [x] Connect to django dashboard
-* [x] Vip code managed from dashboard
+* [x] Layout and responsive
+* [x] Select transport type
+* [x] Custom tailwind colors
+* [x] Dynamic arriving and departing forms
+* [x] React hooks
+* [x] Redirect to stripe checkout
+* [x] Custom scroll bar
+* [x] Hover effects
+* [x] Host in cancunconciergedmc.com
+* [x] Loading spinner
+* [x] Connect to django dashboard
+* [x] Vip code managed from dashboard
 * [x] Free dates managed from dashboard
 

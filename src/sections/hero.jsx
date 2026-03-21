@@ -1,10 +1,10 @@
-import Logo from '../components/logo'
-
 export default function Hero () {
   return (
     <section className="hero">
       <div className="wrapper-logo mx-auto my-0">
-        <img src="./imgs/page-logo.png" alt="event logo" className="w-56 mx-auto"/>
+        <p className="logo-wordmark text-center text-3xl sm:text-4xl md:text-5xl text-black uppercase max-w-full mx-auto p-16">
+          SEEMA & ROHAN
+        </p>
       </div>
 
       <div className="hero-image relative">
