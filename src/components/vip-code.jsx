@@ -76,7 +76,7 @@ export default function VipCode() {
               lg:w-5/12
             `}
           >
-            <Input
+            {/* <Input
               label='Do you have a code?'
               type="text"
               placeholder='12345'
@@ -97,7 +97,7 @@ export default function VipCode() {
                 type='button'
                 onClick={(e) => handleSubmit(e)}
               />
-            </div>
+            </div> */}
           </fieldset>
 
       }
