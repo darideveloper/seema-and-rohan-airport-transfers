@@ -273,7 +273,6 @@ export default function Form() {
 
         </div>
 
-        <VipCode />
 
         <div
           className={`
