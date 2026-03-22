@@ -12,7 +12,7 @@ export default function Hero () {
           text-center
           text-3xl
           sm:text-4xl
-          md:text-5xl
+          md:text-7xl
           text-black
           uppercase
           max-w-full mx-auto p-16`}>
@@ -40,7 +40,7 @@ export default function Hero () {
             bg-white text-center 
             max-w-5xl lg:py-5 lg:px-20
             `}>
-            Complimentary transportation will be provided
+            Complimentary transportation <br/> will be provided
           </h1>
         </div>  
       </div>

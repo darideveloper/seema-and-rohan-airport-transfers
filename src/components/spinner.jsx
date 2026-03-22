@@ -2,13 +2,16 @@ import PropTypes from 'prop-types'
 
 export default function Spinner ({size="l", alt=false}) {
 
-  const className = size == "l" ? "w-30" : "w-10"
+  const dimension = size == "l" ? "w-16 h-16" : "w-8 h-8"
+  const borderColor = alt ? "border-black/20" : "border-white/20"
+  const arcColor = alt ? "border-t-black" : "border-t-white"
 
   return (
-    <img 
-      src={alt ?  "./imgs/spinner_alt.gif" : "./imgs/spinner.gif"} 
-      alt="loading spinner" 
-      className={className} />
+    <div
+      className={`${dimension} ${borderColor} ${arcColor} border-4 rounded-full animate-spin`}
+      role="status"
+      aria-label="Loading"
+    />
   )
 }
 
