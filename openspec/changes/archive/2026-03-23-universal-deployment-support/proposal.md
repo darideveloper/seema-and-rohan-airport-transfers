@@ -1,6 +1,6 @@
 # Proposal: Universal Deployment Support
 
-## Problem Statement
+## Why
 The current project is configured with a hardcoded Vite `base` path and hardcoded external asset URLs. This prevents the application from being deployed to a main domain, a different subdomain, or a different subpath without manual code changes.
 
 ## Goals
@@ -8,7 +8,7 @@ The current project is configured with a hardcoded Vite `base` path and hardcode
 - Ensure all assets (images, icons) load correctly regardless of the deployment URL.
 - Make external service assets (like Stripe Checkout images) dynamic based on the current environment.
 
-## Proposed Changes
+## What Changes
 1.  **Vite Configuration**: Update `vite.config.js` to use a relative base path (`./`). This allows the browser to resolve asset paths relative to the current location of `index.html`.
 2.  **Dynamic Asset URLs**: Replace hardcoded GitHub-hosted image URLs in API logic with dynamic URLs generated from the current `window.location`.
 

@@ -1,9 +1,10 @@
-# Spec: API Dynamic Assets Capability
+# api-dynamic-assets Specification
 
-## MODIFIED Requirements
-
-### External Dynamic Asset URLs
-All external service calls that require image URLs must construct those URLs at runtime based on the current environment.
+## Purpose
+TBD - created by archiving change universal-deployment-support. Update Purpose after archive.
+## Requirements
+### Requirement: External Dynamic Asset URLs
+All external service calls that require image URLs MUST construct those URLs at runtime based on the current environment.
 
 #### Scenario: Stripe Image URL Construction
 - **Given** the application is running at `https://wedding-site.com/`
@@ -14,3 +15,4 @@ All external service calls that require image URLs must construct those URLs at 
 - **Given** the application is running at `https://cancunconciergedmc.com/transfers/`
 - **When** the `submitStripe` function is called
 - **Then** the `serviceImage` variable must be `https://cancunconciergedmc.com/transfers/imgs/logo.png`
+
