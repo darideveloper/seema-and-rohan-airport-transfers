@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-export default function TransportType ({id, text, handleUpdateType, transportType, initialActive}) {
+export default function TransportType ({id, text, handleUpdateType, transportType}) {
 
   const [hover, setHover] = useState (false)
 
@@ -10,26 +10,16 @@ export default function TransportType ({id, text, handleUpdateType, transportTyp
     handleUpdateType (id)
   }
 
-  // active components with initialActive when loads
-  useEffect(() => {
-
-    // Detect if label is hover
-    const input = document.querySelector (`[id="${id}"]`)
-    const label = input.parentNode
-    label.addEventListener ('mouseover', () => {
-      setHover (true)
-    })
-    label.addEventListener ('mouseout', () => {
-      setHover (false)
-    })
-
-  }, [])
-
   return (
     <div className="transport-type">
 
       <div className="checkbox opacity-80 ms-3">
-        <label htmlFor={id} className='flex items-center justify-start mb-10 md:justify-center cursor-pointer'>
+        <label 
+          htmlFor={id} 
+          className='flex items-center justify-start mb-10 md:justify-center cursor-pointer'
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
 
           <div className="box border-2 w-14 h-8 border-black flex items-center justify-center">
             {/* Activate this div when selected */}
@@ -54,5 +44,4 @@ TransportType.propTypes = {
   text: PropTypes.string.isRequired,
   handleUpdateType: PropTypes.func.isRequired,
   transportType: PropTypes.string.isRequired,
-  initialActive: PropTypes.bool.isRequired,
 }

@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import PropTypes from 'prop-types'
 import TransportType from "./transport-type"
 
@@ -14,7 +13,6 @@ export default function TransportTypes({handleUpdateType, activeTransportType, t
           text={transport.text}
           handleUpdateType={handleUpdateType}
           transportType={activeTransportType} // submit active transport type to components
-          initialActive={transport.initialActive}
         />
       ))}
 
@@ -28,6 +26,5 @@ TransportTypes.propTypes = {
   transports: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    initialActive: PropTypes.bool.isRequired,
   })).isRequired,
 }

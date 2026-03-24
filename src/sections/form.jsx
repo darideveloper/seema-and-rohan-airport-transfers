@@ -27,7 +27,7 @@ export default function Form() {
   const { vipCode } = useContext(VipCodeContext)
 
   const [transports, setTransports] = useState([])
-  const [activeTransportType, setActiveTransportType] = useState('Arriving,Departing')
+  const [activeTransportType, setActiveTransportType] = useState('')
   const [mediaQuery, setMediaQuery] = useState(false)
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -78,7 +78,10 @@ export default function Form() {
   function updateTransports() {
     getTransports().then(apiTransports => {
       setTransports(apiTransports)
-      setActiveTransportType(apiTransports[2].id)
+      const defaultOption = apiTransports.find(transport => transport.initialActive)
+      if (defaultOption) {
+        setActiveTransportType(defaultOption.id)
+      }
     })
   }
 
