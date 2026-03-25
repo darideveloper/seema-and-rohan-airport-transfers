@@ -48,5 +48,64 @@ p, h1, h2, h3, h4, h5, h6
 @tailwind components
 @tailwind utilities
 
+/* SweetAlert2 custom theme */
+.swal2-popup
+  font-family: 'Cormorant Garamond', serif
+  background: $white
+  border: 2px solid $gold
+  border-radius: 1rem
+
+  .swal2-title
+    font-family: 'Cormorant Garamond', serif
+    color: $black
+
+  .swal2-html-container,
+  .swal2-content
+    font-family: 'Cormorant Garamond', serif
+    color: $black
+    font-size: 1.1rem
+
+  .swal2-footer
+    font-family: 'Cormorant Garamond', serif
+    color: rgba($black, 0.7)
+    border-top: 1px solid rgba($gold, 0.3)
+
+  .swal2-confirm
+    background: $black !important
+    border: 2px solid $black !important
+    color: $white
+    font-family: 'Cormorant Garamond', serif
+    font-size: 1.2rem
+    font-weight: 700
+    border-radius: 0.75rem
+    padding: 0.5rem 2rem
+    transition: all 0.3s ease
+
+    &:hover
+      background: $white !important
+      color: $black !important
+
+    &:focus
+      box-shadow: 0 0 0 3px rgba($gold, 0.4) !important
+
+  .swal2-cancel
+    font-family: 'Cormorant Garamond', serif
+    font-size: 1.2rem
+    border-radius: 0.75rem
+
+  .swal2-icon.swal2-success
+    border-color: $gold
+    color: $gold
+
+    .swal2-success-ring
+      border-color: rgba($gold, 0.3)
+
+    [class^='swal2-success-line']
+      background-color: $gold
+
+  .swal2-icon.swal2-error
+    border-color: #c0392b
+    color: #c0392b
+
 .debug 
   border: 1px solid red
