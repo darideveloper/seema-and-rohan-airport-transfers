@@ -7,16 +7,16 @@ export default function Faqs() {
       question: "WHY SHOULD I BOOK WITH CANCUN CONCIERGE? I AM SEEING CHEAPER TRANSPORTATION RATES ONLINE.",
       answer: (
         <p>
-          Booking with Cancun Concierge ensures more than just transportation. We offer personalized service, local expertise, and seamless coordination for your entire trip. Our commitment to quality, reliability, and customer satisfaction sets us apart from cheaper options online. With us, you&apos;re not just booking a ride, you&apos;re investing in a stress-free, safe and unforgettable experience tailored to your needs.
+          Booking with Cancun Concierge ensures more than just transportation. We offer personalized service, local expertise, and seamless coordination for your entire trip. Our commitment to quality, reliability, and customer satisfaction sets us apart from cheaper options online. With us, you're not just booking a ride, you're investing in a stress-free, safe and unforgettable experience tailored to your needs.
         </p>
       )
     },
     {
-      question: "WHAT IS INCLUDED WITH CANCUN CONCIERGE&apos;S TRANSPORTATION SERVICE?",
+      question: "WHAT IS INCLUDED WITH CANCUN CONCIERGE'S TRANSPORTATION SERVICE?",
       answer: (
         <ul className="list-disc pl-5 space-y-2">
           <li>Personalized email transportation confirmation</li>
-          <li>Meet &amp; greet staff at the airport dedicated for Kiana &amp; Swaroop&apos;s wedding</li>
+          <li>Meet & greet staff at the airport dedicated for Seema & Rohan's wedding</li>
           <li>Refreshments</li>
           <li>Professional and trusted drivers</li>
           <li>A single rate inclusive of all taxes and fees</li>
@@ -24,10 +24,10 @@ export default function Faqs() {
       )
     },
     {
-      question: "HOW DO I FIND CANCUN CONCIERGE ONCE I&apos;M READY TO LEAVE THE AIRPORT?",
+      question: "HOW DO I FIND CANCUN CONCIERGE ONCE I'M READY TO LEAVE THE AIRPORT?",
       answer: (
         <p>
-          Our staff will be wearing white polo shirts and khaki pants and holding a sign with Kiana &amp; Swaroop&apos;s wedding. The staff will be waiting right outside the airport terminal by the pre-arranged transportation area. Our staff will escort you to your awaiting vehicle to safely and quickly get you over to the Hilton Tulum Riviera Maya
+          Our staff will be wearing white polo shirts and khaki pants and holding a sign with Seema & Rohan's wedding. The staff will be waiting right outside the airport terminal by the pre-arranged transportation area. Our staff will escort you to your awaiting vehicle to safely and quickly get you over to the Hilton Tulum Riviera Maya
         </p>
       )
     },
