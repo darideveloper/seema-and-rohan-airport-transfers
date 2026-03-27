@@ -4,6 +4,7 @@ import Header from './sections/header'
 import Hero from './sections/hero'
 import Form from './sections/form'
 import Services from './sections/services'
+import Faqs from './sections/faqs'
 import Footer from './sections/footer'
 import Load from './sections/load'
 
@@ -28,6 +29,7 @@ function App() {
       <Hero/>
       <Form/>
       <Services/>
+      <Faqs/>
       <Footer/>
       <Load/>
     </div>
