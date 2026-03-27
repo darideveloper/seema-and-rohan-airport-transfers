@@ -38,9 +38,10 @@ export default function Hero () {
             sm:text-2xl md:text-4xl lg:text-5xl
             leading-snug
             bg-white text-center 
-            max-w-5xl lg:py-5 lg:px-20
+            :w
+            lg:py-5 lg:px-20
             `}>
-            Complimentary transportation <br/> will be provided
+            Complimentary transportation will be provided
           </h1>
         </div>  
       </div>
