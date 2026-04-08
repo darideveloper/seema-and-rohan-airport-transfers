@@ -41,7 +41,7 @@ export default function Hero () {
             :w
             lg:py-5 lg:px-20
             `}>
-            Complimentary transportation will be provided
+            Complimentary transportation will be provided between May 20th and May 26th. Kindly submit your flight details by May 15th to ensure seamless coordination.
           </h1>
         </div>  
       </div>

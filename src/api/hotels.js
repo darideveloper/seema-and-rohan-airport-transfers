@@ -17,12 +17,14 @@ export async function getHotels () {
     })
   }
 
+/*
   // Add "other" option
   data.push({
     value: 'other', 
     label: 'Another Hotel in Playa del Carmen',
     price: 0
   })
+*/
 
   return data
 }

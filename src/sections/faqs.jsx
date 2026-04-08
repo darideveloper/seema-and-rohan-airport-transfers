@@ -16,10 +16,10 @@ export default function Faqs() {
 
   const faqs = [
     {
-      question: "WHY SHOULD I BOOK WITH CANCUN CONCIERGE? I AM SEEING CHEAPER TRANSPORTATION RATES ONLINE.",
+      question: "WHY SHOULD I BOOK WITH CANCUN CONCIERGE?",
       answer: (
         <p>
-          Booking with Cancun Concierge ensures more than just transportation. We offer personalized service, local expertise, and seamless coordination for your entire trip. Our commitment to quality, reliability, and customer satisfaction sets us apart from cheaper options online. With us, you're not just booking a ride, you're investing in a stress-free, safe and unforgettable experience tailored to your needs.
+          Cancun Concierge DMC has been selected as the official transportation provider for Seema & Rohan’s wedding to ensure safety, coordination, and a seamless experience for all guests. Booking with us guarantees reliable service, personalized airport assistance, and full alignment with the wedding’s transportation plan.
         </p>
       )
     },
@@ -31,7 +31,6 @@ export default function Faqs() {
           <li>Meet & greet staff at the airport dedicated for Seema & Rohan's wedding</li>
           <li>Bottled waters</li>
           <li>Professional and trusted drivers</li>
-          <li>A single rate inclusive of all taxes and fees</li>
         </ul>
       )
     },
@@ -40,14 +39,6 @@ export default function Faqs() {
       answer: (
         <p>
           Our staff will be wearing white polo shirts and khaki pants and holding a sign with Seema & Rohan's wedding. The staff will be waiting right outside the airport terminal by the pre-arranged transportation area. Our staff will escort you to your awaiting vehicle to safely and quickly get you over to the {hotelName}
-        </p>
-      )
-    },
-    {
-      question: "HOW DO I PAY FOR MY TRANSPORTATION?",
-      answer: (
-        <p>
-          You can pay right here! Use your credit or debit card to finish the purchase of your transportation between the Cancun Airport and the {hotelName} resort.
         </p>
       )
     },
